@@ -16,3 +16,13 @@ export type InputProps = {
   placeholder?: string;
   error?: string;
 };
+
+export type Transaction = {
+  dateTime: string;
+  author: string;
+  sum: number;
+  category: string;
+  comment: string;
+};
+
+

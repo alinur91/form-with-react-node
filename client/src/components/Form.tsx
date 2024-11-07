@@ -2,8 +2,11 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { sendTransaction } from "../services/api";
 import Input from "../ui/Input";
 import { FormData } from "../lib/types";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
+  const navigate = useNavigate();
+  
   const {
     register,
     handleSubmit,
@@ -14,6 +17,7 @@ const Form = () => {
     try {
       await sendTransaction(data);
       alert("Transaction saved successfully!");
+      navigate("/");
     } catch (error) {
       if (error instanceof Error) {
         alert(`Error saving transaction: ${error.message}`);
